@@ -1,15 +1,16 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
 
     "name": "at Anonym",
     "description": "Create an alias of an email to be used on website.",
     "version": "1.0",
 
-    "browser_action": {
+    "action": {
      "default_icon": "icons/at_anon.svg",
      "default_popup": "popup.html"
     },
     "permissions": ["activeTab"],
+
     "host_permissions": [
       "https://api.infomaniak.com/*"
     ],
