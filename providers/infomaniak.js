@@ -83,35 +83,6 @@ async function addAlias(API_KEY, emailAddress, MAILBOX_ID, ALIASTOADD) {
 }
 
 
-// Function to rename an alias by adding "DISABLE-" in front
-async function renameAlias(API_KEY, emailAddress, MAILBOX_ID, ALIAS_TO_RENAME) {
-    const API_URL = `https://api.infomaniak.com/1/mail_hostings/${MAILBOX_ID}/mailboxes/${emailAddress}/aliases/`;
-
-    try {
-        const response = await fetch(API_URL, {
-            method: 'PUT',
-            headers: {
-                'Authorization': `Bearer ${API_KEY}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                aliases: [`DISABLE-${ALIAS_TO_RENAME}`]
-            })
-        });
-        const data = await response.json();
-        console.log(data)
-        if (response.ok) {
-            console.log('Alias renamed successfully');
-            return true;
-        } else {
-            console.error('Failed to rename alias:', response.status, data.error.description);
-            return false;
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
 // Function to delete an alias
 async function deleteAlias(API_KEY, emailAddress, MAILBOX_ID, ALIAS_TO_DELETE) {
     const API_URL = `https://api.infomaniak.com/1/mail_hostings/${MAILBOX_ID}/mailboxes/${emailAddress}/aliases/${ALIAS_TO_DELETE}`;
