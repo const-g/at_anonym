@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <path d="M1024,102.4C1024,45.884 978.116,0 921.6,0L102.4,0C45.884,0 0,45.884 0,102.4L0,921.6C0,978.116 45.884,1024 102.4,1024L921.6,1024C978.116,1024 1024,978.116 1024,921.6L1024,102.4Z" style="fill:rgb(235,235,235);"/>
+    <path d="M1024,102.4C1024,45.884 978.116,0 921.6,0L102.4,0C45.884,0 0,45.884 0,102.4L0,921.6C0,978.116 45.884,1024 102.4,1024L921.6,1024C978.116,1024 1024,978.116 1024,921.6L1024,102.4ZM963.208,102.4L963.208,921.6C963.208,944.564 944.564,963.208 921.6,963.208L102.4,963.208C79.436,963.208 60.792,944.564 60.792,921.6L60.792,102.4C60.792,79.436 79.436,60.792 102.4,60.792L921.6,60.792C944.564,60.792 963.208,79.436 963.208,102.4Z"/>
+    <g transform="matrix(66.6149,0,0,66.6149,-26579.6,-30758.9)">
+        <text x="401.311px" y="472.248px" style="font-family:'Roboto-Bold', 'Roboto';font-weight:700;font-size:12px;">@</text>
+    </g>
+</svg>
