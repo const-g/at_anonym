@@ -6,7 +6,7 @@
     "version": "1.0",
 
     "action": {
-     "default_icon": "icons/at_anon.svg",
+     "default_icon": "icons/atnonym_icon_96.png",
      "default_popup": "popup.html"
     },
     "permissions": [
