@@ -31,8 +31,8 @@ const restoreOptions = () => {
             USER_PROVIDER = items.provider;
             USER_DOMAIN = items.mail.split('@')[1];
             USER_APIKEY = items.apikey;
-            document.getElementById('provider').textContent = USER_DOMAIN;
-            document.getElementById('mail').textContent = mail;
+            document.getElementById('provider').textContent = USER_PROVIDER;
+            document.getElementById('mail').textContent = items.mail;
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 let tab = tabs[0];
                 const url = new URL(tab.url);
