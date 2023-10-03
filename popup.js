@@ -1,4 +1,4 @@
-let USER_PRESTA = ""
+let USER_PROVIDER = ""
 let USER_DOMAIN = ""
 let USER_APIKEY = ""
 
@@ -11,19 +11,6 @@ let USER_APIKEY = ""
 //     }
 // );
 
-// Retrieve the values from chrome storage
-chrome.storage.sync.get(
-    { provider: 'not set', mail: 'not set', apikey: 'not set' },
-    (items) => {
-        const { provider, mail, apikey } = items;
-        document.getElementById('provider').textContent = provider;
-        document.getElementById('mail').textContent = mail;
-
-        USER_PRESTA = provider;
-        USER_DOMAIN = mail.split('@')[1];
-        USER_APIKEY = apikey;
-    }
-);
 
 document.querySelector('#go-to-options').addEventListener('click', function() {
     if (chrome.runtime.openOptionsPage) {
@@ -35,11 +22,13 @@ document.querySelector('#go-to-options').addEventListener('click', function() {
 
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { presta: 'not set', domain: 'not set', apikey: 'not set' },
+        { provider: 'not set', mail: 'not set', apikey: 'not set' },
         (items) => {
-            USER_PRESTA = items.presta;
-            USER_DOMAIN = items.domain;
+            USER_PROVIDER = items.provider;
+            USER_DOMAIN = mail.split('@')[1];
             USER_APIKEY = items.apikey;
+            document.getElementById('provider').textContent = provider;
+            document.getElementById('mail').textContent = mail;
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 let tab = tabs[0];
                 const url = new URL(tab.url);
