@@ -23,5 +23,6 @@
     "optional_host_permissions":[
         "https://*/*",
         "http://*/*"
-    ]
+    ],
+    "background": { "service_worker": "popup.js", "type": "module" }
   }
