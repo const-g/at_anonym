@@ -1,5 +1,7 @@
 # at_anonym
 
-Un plug-in Firefox pour créer une adresse dédiée à un site via l'API GANDI.
+Un plug-in Chrome pour créer une adresse dédiée à un site.
 
-Mais Gandi c'est nul maintenant, faut le refaire pour utiliser ailleurs.
+## Aide :
+
+- https://developer.chrome.com/docs/extensions/mv3/declare_permissions/
