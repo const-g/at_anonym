@@ -11,24 +11,16 @@ let USER_APIKEY = ""
 //     }
 // );
 
-chrome.storage.sync.get(
+const { provider, mail, apikey } = chrome.storage.sync.get(
     { provider: 'not set', mail: 'not set', apikey: 'not set' },
     (items) => {
         const { provider, mail, apikey } = items;
-        console.log(provider);
-        console.log(mail);
-        console.log(apikey);
         document.getElementById('provider').textContent = provider;
         document.getElementById('mail').textContent = mail;
     }
 );
 
-
-
-
-function saveAliases() {
-    console.log("Domain: " + USER_DOMAIN);
-}
+const [USER, DOMAIN] = mail.split('@');
 
 document.querySelector('#go-to-options').addEventListener('click', function() {
     if (chrome.runtime.openOptionsPage) {
@@ -58,7 +50,7 @@ const restoreOptions = () => {
                 + Math.floor(Math.random() * 9)
                 + Math.floor(Math.random() * 9)
                 + Math.floor(Math.random() * 9);
-                let email = newAlias + "@" + USER_DOMAIN;
+                let email = newAlias + "@" + DOMAIN;
 
                 document.getElementById('address').textContent = email;
             });
