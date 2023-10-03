@@ -28,8 +28,6 @@ const restoreOptions = () => {
     chrome.storage.sync.get(
         { provider: 'not set', mail: 'not set', apikey: 'not set' },
         (items) => {
-            console.log(mail)
-            console.log(items.mail)
             USER_PROVIDER = items.provider;
             USER_DOMAIN = items.mail.split('@')[1];
             USER_APIKEY = items.apikey;
