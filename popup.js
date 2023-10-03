@@ -11,16 +11,19 @@ let USER_APIKEY = ""
 //     }
 // );
 
-const { provider, mail, apikey } = chrome.storage.sync.get(
+// Retrieve the values from chrome storage
+chrome.storage.sync.get(
     { provider: 'not set', mail: 'not set', apikey: 'not set' },
     (items) => {
         const { provider, mail, apikey } = items;
         document.getElementById('provider').textContent = provider;
         document.getElementById('mail').textContent = mail;
+
+        USER_PRESTA = provider;
+        USER_DOMAIN = mail.split('@')[1];
+        USER_APIKEY = apikey;
     }
 );
-
-const [USER, DOMAIN] = mail.split('@');
 
 document.querySelector('#go-to-options').addEventListener('click', function() {
     if (chrome.runtime.openOptionsPage) {
@@ -50,7 +53,7 @@ const restoreOptions = () => {
                 + Math.floor(Math.random() * 9)
                 + Math.floor(Math.random() * 9)
                 + Math.floor(Math.random() * 9);
-                let email = newAlias + "@" + DOMAIN;
+                let email = newAlias + "@" + USER_DOMAIN;
 
                 document.getElementById('address').textContent = email;
             });
