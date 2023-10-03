@@ -20,6 +20,10 @@ document.querySelector('#go-to-options').addEventListener('click', function() {
     }
   });
 
+function saveAliases() {
+    console.log("Domain: " + USER_DOMAIN);
+}
+
 const restoreOptions = () => {
     chrome.storage.sync.get(
         { provider: 'not set', domain: 'not set', apikey: 'not set' },
