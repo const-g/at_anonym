@@ -18,7 +18,7 @@ const saveOptions = () => {
 
 const restoreOptions = () => {
   chrome.storage.sync.get(
-    { presta, domain, apikey },
+    { presta: 'not set', domain: 'not set', apikey: 'not set' },
     (items) => {
       document.getElementById("presta").value = items.presta;
       document.getElementById("domain").value = items.domain;
