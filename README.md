@@ -1,6 +1,6 @@
 # at_anonym
 
-Un plug-in Chrome pour créer une adresse dédiée à un site.
+Un plug-in Chrome pour créer une adresse email dédiée à un site.
 
 ## Aide :
 
