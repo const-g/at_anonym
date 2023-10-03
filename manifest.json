@@ -1,29 +1,20 @@
 {
-    "manifest_version": 2,
-    "name": "at_Anonym",
+    "manifest_version": 3,
+
+    "name": "at Anonym",
+    "description": "Create an alias of an email to be used on website.",
     "version": "1.0",
-    "description": "Generate a random email address for a website to use with GANDI",
-    "homepage_url": "https://github.com/const-g/at_anonym",
-    "icons": {
-        "48": "icons/at_anon.svg"
-    },
-    "permissions": [
-        "activeTab",
-        "*://api.gandi.net/*",
-        "webRequest",
-        "clipboardWrite"
-    ],
+
     "browser_action": {
-        "default_icon": "icons/at_anon.svg",
-        "default_title": "at_anonyme",
-        "default_popup": "popup/choose_address.html"
+     "default_icon": "icons/icon.png",
+     "default_popup": "popup.html"
     },
-    "background": {
-        "scripts": ["popup/choose_address.js"]
-    },
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "ldksfjd5464df123s1fdfljshdfkjsfsdf5s24"
-        }
-    }
-}
+    "permissions": ["activeTab"],
+    "host_permissions": [
+      "https://api.infomaniak.com/*"
+    ],
+    "optional_host_permissions":[
+        "https://*/*",
+        "http://*/*"
+    ]
+  }
