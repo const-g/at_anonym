@@ -2,12 +2,28 @@ let USER_PRESTA = ""
 let USER_DOMAIN = ""
 let USER_APIKEY = ""
 
+// const { provider, mail, apikey } = chrome.storage.sync.get(
+//     { provider: 'not set', mail: 'not set', apikey: 'not set' },
+//     (items) => {
+//         const { provider, mail, apikey } = items;
+//         console.log(provider)
+//         // Your code here to use the retrieved values
+//     }
+// );
+
 chrome.storage.sync.get(
-    { apikey: 'not set' },
+    { provider: 'not set', mail: 'not set', apikey: 'not set' },
     (items) => {
-        USER_APIKEY = items.apikey;
+        const { provider, mail, apikey } = items;
+        console.log(provider);
+        console.log(mail);
+        console.log(apikey);
+        document.getElementById('provider').textContent = provider;
+        document.getElementById('mail').textContent = mail;
     }
 );
+
+
 
 
 function saveAliases() {
