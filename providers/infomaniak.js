@@ -138,7 +138,7 @@ async function deleteAlias(API_KEY, emailAddress, MAILBOX_ID, ALIAS_TO_DELETE) {
 }
 
 // List Aliases function
-async function listAliases(API_KEY, USER, DOMAIN) {
+export async function listAliases(API_KEY, USER, DOMAIN) {
     try {
         const MAILBOX_ID = await getMailboxId(API_KEY, DOMAIN);
         const ALIASES = await getAliases(API_KEY, USER, MAILBOX_ID);

@@ -1,5 +1,5 @@
 // Import the necessary functions from the providers folder
-import { listAliases, renameAlias } from './providers/infomaniak.js';
+import { listAliases } from './providers/infomaniak.js';
 
 
 let USER_PROVIDER = ""
