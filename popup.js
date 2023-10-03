@@ -22,12 +22,12 @@ document.querySelector('#go-to-options').addEventListener('click', function() {
 
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { provider: 'not set', mail: 'not set', apikey: 'not set' },
+        { provider: 'not set', domain: 'not set', apikey: 'not set' },
         (items) => {
             USER_PROVIDER = items.provider;
-            USER_DOMAIN = mail.split('@')[1];
+            USER_DOMAIN = items.mail.split('@')[1];
             USER_APIKEY = items.apikey;
-            document.getElementById('provider').textContent = provider;
+            document.getElementById('provider').textContent = USER_DOMAIN;
             document.getElementById('mail').textContent = mail;
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 let tab = tabs[0];
