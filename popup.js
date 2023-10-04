@@ -68,6 +68,7 @@ const restoreOptions = () => {
                             aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
                             const switchItem = document.createElement('input');
                             switchItem.type = 'checkbox';
+                            aliasItem.classList.add("form-switch");
                             switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
                             aliasItem.appendChild(switchItem);
                             aliasesList.appendChild(aliasItem);
@@ -103,6 +104,7 @@ const restoreOptions = () => {
                                         aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
                                         const switchItem = document.createElement('input');
                                         switchItem.type = 'checkbox';
+                                        aliasItem.classList.add("form-switch");
                                         switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
                                         aliasItem.appendChild(switchItem);
                                         aliasesList.appendChild(aliasItem);
