@@ -74,7 +74,7 @@ const restoreOptions = () => {
 
                             // Create delete button
                             const deleteButton = document.createElement('button');
-                            deleteButton.textContent = 'Supprimer';
+                            deleteButton.textContent = '❌';
                             aliasItem.appendChild(deleteButton);
 
                             // Add event listener to delete button
@@ -109,7 +109,7 @@ const restoreOptions = () => {
             
                                         // Create delete button
                                         const deleteButton = document.createElement('button');
-                                        deleteButton.textContent = 'Supprimer';
+                                        deleteButton.textContent = '❌';
                                         aliasItem.appendChild(deleteButton);
             
                                         // Add event listener to delete button
@@ -120,6 +120,7 @@ const restoreOptions = () => {
                                             aliasesList.removeChild(aliasItem);
                                         });
                                     });
+                                    document.getElementById('existingAliases').textContent = '';
                                     document.getElementById('existingAliases').appendChild(aliasesList);
                                 });
                             }
