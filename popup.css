@@ -1,10 +1,12 @@
 :root {
-  --white: #e8e9ed;
-  --gray: #434257;
-  --blue: #18172c;
+  --white: #ffffff;
+  --gray: #c8c8c8;
+  --blue: #00a6ff;
   --green: #00d084;
   --pink: #ff4b77;
 }
+
+
 
 * {
   padding: 0;
@@ -37,9 +39,16 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
+
+.addr{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
 
 .switches {
   max-width: 500px;
@@ -85,6 +94,7 @@ h1 {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
   background: var(--gray);
   transition: all 0.3s;
+  margin-right: 35px;
 }
 
 .switches span:last-child::before,
@@ -130,17 +140,67 @@ h1 {
     display: none;
   }
 
-  .button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--gray);
-    color: var(--white);
-    font-size: 14px;
-    cursor: pointer;
-  }
+/* Add the following CSS to move the delete button to the right of the switch */
+.switches label {
+  position: relative;
+}
 
-  .button:hover {
-    background-color: var(--green);
-  }
+.switches .delete-button {
+  position: absolute;
+  right: 0;
+  margin-right: 12px;
+  margin-top: -40px;
+  background-image: url(https://img.papamica.com/icon/delete.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: "";
+  width: 25px;
+  height: 25px;
+}
+
+.image-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  color: #fff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  margin-right: 6px;
+  margin-top: -49px;
+}
+.image-button img {
+  height: 23px;
+}
+
+.saveButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 36px;
+  width: 200px;
+  border: none;
+  background: #7b7b7b;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.lable {
+  line-height: 20px;
+  color: var(--white);
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-family: "Gill Sans", sans-serif;
+}
+
+.saveButton:hover {
+  background:var(--blue);
+}

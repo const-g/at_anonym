@@ -79,10 +79,14 @@ const restoreOptions = () => {
                             aliasItem.appendChild(switchItem);
                             aliasItem.appendChild(label);
                             aliasesList.appendChild(aliasItem);
-
+            
                             // Create delete button
                             const deleteButton = document.createElement('button');
-                            deleteButton.textContent = '❌';
+                            deleteButton.classList.add('image-button');
+                            const deleteButtonImg = document.createElement('img');
+                            deleteButtonImg.src = 'https://img.papamica.com/icon/delete.png';
+                            deleteButtonImg.alt = 'Image';
+                            deleteButton.appendChild(deleteButtonImg);
                             aliasItem.appendChild(deleteButton);
 
                             // Add event listener to delete button
@@ -126,7 +130,11 @@ const restoreOptions = () => {
             
                                         // Create delete button
                                         const deleteButton = document.createElement('button');
-                                        deleteButton.textContent = '❌';
+                                        deleteButton.classList.add('image-button');
+                                        const deleteButtonImg = document.createElement('img');
+                                        deleteButtonImg.src = 'https://img.papamica.com/icon/delete.png';
+                                        deleteButtonImg.alt = 'Image';
+                                        deleteButton.appendChild(deleteButtonImg);
                                         aliasItem.appendChild(deleteButton);
             
                                         // Add event listener to delete button
