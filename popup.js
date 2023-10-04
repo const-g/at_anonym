@@ -1,16 +1,5 @@
-// Replace the importScripts statement with the appropriate code to import the infomaniak.js file
-// Handle any errors that occur during the import
-let err
-try {
-    const infomaniak = require('./providers/infomaniak.js');
-} catch (err2) {
-    err = err2;
-}
+import * as infomaniak from './providers/infomaniak.js';
 
-// Handle the error if it occurred during the import
-if (err) {
-    console.error(err);
-}
 
 let USER_PROVIDER = ""
 let USER_DOMAIN = ""
