@@ -34,7 +34,6 @@ const restoreOptions = () => {
             USER_USER = items.mail.split('@')[0];
             USER_DOMAIN = items.mail.split('@')[1];
             USER_APIKEY = items.apikey;
-            console.log(USER_APIKEY);
             USER_MAIL = items.mail
             document.getElementById('provider').textContent = USER_PROVIDER;
             document.getElementById('mail').textContent = items.mail;
@@ -62,15 +61,24 @@ const restoreOptions = () => {
                         return ALIASES;
                     }
                     const aliases = getAlias().then(aliases => {
-                        const aliasesList = document.createElement('ul');
+                        const aliasesList = document.createElement('ol');
+                        aliasesList.type = 'switches';
                         aliases.forEach(alias => {
                             const aliasItem = document.createElement('li');
-                            aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
                             const switchItem = document.createElement('input');
+                            const label = document.createElement('label');
+                            const span1 = document.createElement('span');
+                            const span2 = document.createElement('span');
+                            
                             switchItem.type = 'checkbox';
                             aliasItem.classList.add("form-switch");
                             switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
+                            span1.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
+                            
+                            label.appendChild(span1);
+                            label.appendChild(span2);
                             aliasItem.appendChild(switchItem);
+                            aliasItem.appendChild(label);
                             aliasesList.appendChild(aliasItem);
 
                             // Create delete button
@@ -98,15 +106,24 @@ const restoreOptions = () => {
                                     return ALIASES;
                                 }
                                 const aliases = getAlias().then(aliases => {
-                                    const aliasesList = document.createElement('ul');
+                                    const aliasesList = document.createElement('ol');
+                                    aliasesList.type = 'switches';
                                     aliases.forEach(alias => {
                                         const aliasItem = document.createElement('li');
-                                        aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
                                         const switchItem = document.createElement('input');
+                                        const label = document.createElement('label');
+                                        const span1 = document.createElement('span');
+                                        const span2 = document.createElement('span');
+                                        
                                         switchItem.type = 'checkbox';
                                         aliasItem.classList.add("form-switch");
                                         switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
+                                        span1.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
+                                        
+                                        label.appendChild(span1);
+                                        label.appendChild(span2);
                                         aliasItem.appendChild(switchItem);
+                                        aliasItem.appendChild(label);
                                         aliasesList.appendChild(aliasItem);
             
                                         // Create delete button
