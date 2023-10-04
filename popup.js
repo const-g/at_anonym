@@ -1,14 +1,16 @@
-var err;
-try{      
-      importScripts('./providers/infomaniak.js');            
-}
-catch(err2){
-      err    = err2;
-}
-if(err){    //handle error        
-      console.error(err);            
+// Replace the importScripts statement with the appropriate code to import the infomaniak.js file
+// Handle any errors that occur during the import
+let err
+try {
+    const infomaniak = require('./providers/infomaniak.js');
+} catch (err2) {
+    err = err2;
 }
 
+// Handle the error if it occurred during the import
+if (err) {
+    console.error(err);
+}
 
 let USER_PROVIDER = ""
 let USER_DOMAIN = ""
@@ -69,13 +71,14 @@ const restoreOptions = () => {
                 
                 if (USER_PROVIDER === 'infomaniak') {
                     async function getAlias() {
-                        const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
+                        const [MAILBOXS_ID, ALIASES] = await infomaniak.listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
                         return ALIASES;
                     }
                     const aliases = getAlias()
+                    document.getElementById('existingAliases').textContent = aliases;
                 }
 
-                document.getElementById('existingAliases').textContent = aliases;
+                
             });
         }
     );
