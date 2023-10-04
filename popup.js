@@ -76,11 +76,18 @@ const restoreOptions = () => {
                     });
                 }
 
+                document.querySelector('#saveButton').addEventListener('click', function() {
+                    if (USER_PROVIDER === 'infomaniak') {
+                            main_create(USER_APIKEY, USER_MAIL, newAlias);
+                    }
+                  });
                 
             });
         }
     );
 }
 
+
+
 document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById("saveButton").addEventListener("click", saveAliases);
+//document.getElementById("saveButton").addEventListener("click", saveAliases);
