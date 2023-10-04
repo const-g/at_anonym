@@ -62,14 +62,13 @@ const restoreOptions = () => {
                     }
                     const aliases = getAlias().then(aliases => {
                         const aliasesList = document.createElement('ol');
-                        aliasesList.class = 'switches';
+                        aliasesList.classList.add("switches");
                         aliases.forEach(alias => {
                             const aliasItem = document.createElement('li');
                             const switchItem = document.createElement('input');
                             const label = document.createElement('label');
                             const span1 = document.createElement('span');
                             const span2 = document.createElement('span');
-                            
                             switchItem.type = 'checkbox';
                             aliasItem.classList.add("form-switch");
                             switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
@@ -107,7 +106,7 @@ const restoreOptions = () => {
                                 }
                                 const aliases = getAlias().then(aliases => {
                                     const aliasesList = document.createElement('ol');
-                                    aliasesList.class = 'switches';
+                                    aliasesList.classList.add("switches");
                                     aliases.forEach(alias => {
                                         const aliasItem = document.createElement('li');
                                         const switchItem = document.createElement('input');
