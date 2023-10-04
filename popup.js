@@ -1,5 +1,3 @@
-importScripts('./providers/infomaniak.js');
-
 let USER_PROVIDER = ""
 let USER_DOMAIN = ""
 let USER_USER = ""
@@ -59,7 +57,7 @@ const restoreOptions = () => {
                 
                 if (USER_PROVIDER === 'infomaniak') {
                     async function getAlias() {
-                        const [MAILBOXS_ID, ALIASES] = await infomaniak.listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
+                        const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
                         return ALIASES;
                     }
                     const aliases = getAlias()
