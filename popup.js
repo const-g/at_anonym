@@ -30,6 +30,7 @@ const restoreOptions = () => {
     chrome.storage.sync.get(
         { provider: 'not set', mail: 'not set', apikey: 'not set' },
         (items) => {
+
             USER_PROVIDER = items.provider;
             USER_USER = items.mail.split('@')[0];
             USER_DOMAIN = items.mail.split('@')[1];
@@ -37,6 +38,14 @@ const restoreOptions = () => {
             USER_MAIL = items.mail
             document.getElementById('provider').textContent = USER_PROVIDER;
             document.getElementById('mail').textContent = items.mail;
+
+
+
+            if(items.provider === 'not set' || items.mail === 'not set' || items.apikey === 'not set') {
+                document.getElementById('newalias').innerHTML = "Please go to settings before";
+                return false;
+            }
+
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 let tab = tabs[0];
                 const url = new URL(tab.url);
@@ -53,8 +62,8 @@ const restoreOptions = () => {
                 let email = newAlias + "@" + USER_DOMAIN;
 
                 document.getElementById('address').textContent = email;
-                
-                
+
+
                 if (USER_PROVIDER === 'infomaniak') {
                     async function getAlias() {
                         const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
@@ -73,13 +82,13 @@ const restoreOptions = () => {
                             aliasItem.classList.add("form-switch");
                             switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
                             span1.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
-                            
+
                             label.appendChild(span1);
                             label.appendChild(span2);
                             aliasItem.appendChild(switchItem);
                             aliasItem.appendChild(label);
                             aliasesList.appendChild(aliasItem);
-            
+
                             // Create delete button
                             const deleteButton = document.createElement('button');
                             deleteButton.classList.add('image-button');
@@ -117,17 +126,17 @@ const restoreOptions = () => {
                                         const label = document.createElement('label');
                                         const span1 = document.createElement('span');
                                         const span2 = document.createElement('span');
-                                        
+
                                         switchItem.type = 'checkbox';
                                         switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
                                         span1.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
-                                        
+
                                         label.appendChild(span1);
                                         label.appendChild(span2);
                                         aliasItem.appendChild(switchItem);
                                         aliasItem.appendChild(label);
                                         aliasesList.appendChild(aliasItem);
-            
+
                                         // Create delete button
                                         const deleteButton = document.createElement('button');
                                         deleteButton.classList.add('image-button');
@@ -136,7 +145,7 @@ const restoreOptions = () => {
                                         deleteButtonImg.alt = 'Image';
                                         deleteButton.appendChild(deleteButtonImg);
                                         aliasItem.appendChild(deleteButton);
-            
+
                                         // Add event listener to delete button
                                         deleteButton.addEventListener('click', function() {
                                             // Call deleteAlias function
@@ -151,7 +160,7 @@ const restoreOptions = () => {
                             }
                     }
                   });
-                
+
             });
         }
     );

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 :root {
   --white: #ffffff;
   --gray: #c8c8c8;
@@ -33,21 +35,24 @@ label {
 }
 
 body {
-  font-size: 20px;
-  font-family: "Gill Sans", sans-serif;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
   margin: 10px;
   width: 450px
 }
 
 h1 {
   font-size: 1.5rem;
+}
+
+h1, h2 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.addr{
-  font-size: 1.5rem;
+.addr, #newalias {
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -200,8 +205,7 @@ h1 {
   line-height: 20px;
   color: var(--white);
   letter-spacing: 1px;
-  font-size: 20px;
-  font-family: "Gill Sans", sans-serif;
+  font-size: 1.2rem;
 }
 
 .saveButton:hover {
