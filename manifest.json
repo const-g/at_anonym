@@ -23,6 +23,5 @@
     "optional_host_permissions":[
         "https://*/*",
         "http://*/*"
-    ],
-    "background": { "service_worker": "./providers/infomaniak.js", "type": "module" }
+    ]
   }
