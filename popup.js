@@ -26,7 +26,7 @@ function saveAliases() {
     console.log("Domain: " + USER_DOMAIN);
 }
 
-const restoreOptions = () => {
+const restoreOptions = async () => {
     chrome.storage.sync.get(
         { provider: 'not set', mail: 'not set', apikey: 'not set' },
         (items) => {
@@ -34,6 +34,7 @@ const restoreOptions = () => {
             USER_USER = items.mail.split('@')[0];
             USER_DOMAIN = items.mail.split('@')[1];
             USER_APIKEY = items.apikey;
+            console.log(USER_APIKEY);
             USER_MAIL = items.mail
             document.getElementById('provider').textContent = USER_PROVIDER;
             document.getElementById('mail').textContent = items.mail;
@@ -60,7 +61,7 @@ const restoreOptions = () => {
                         const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
                         return ALIASES;
                     }
-                    const aliases = getAlias()
+                    const aliases = await getAlias();
                     document.getElementById('existingAliases').textContent = aliases;
                 }
 
