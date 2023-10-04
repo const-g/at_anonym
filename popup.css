@@ -35,12 +35,14 @@ label {
 body {
   font-size: 20px;
   font-family: "Gill Sans", sans-serif;
-  margin: 50px 0;
+  margin: 10px;
 }
 
 h1 {
   font-size: 1.5rem;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .addr{
