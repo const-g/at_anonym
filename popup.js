@@ -65,7 +65,7 @@ const restoreOptions = () => {
                         const aliasesList = document.createElement('ul');
                         aliases.forEach(alias => {
                             const aliasItem = document.createElement('li');
-                            aliasItem.textContent = alias;
+                            aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
                             const switchItem = document.createElement('input');
                             switchItem.type = 'checkbox';
                             switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
