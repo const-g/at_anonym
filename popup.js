@@ -1,5 +1,4 @@
-import * as infomaniak from './providers/infomaniak.js';
-
+importScripts('./providers/infomaniak.js');
 
 let USER_PROVIDER = ""
 let USER_DOMAIN = ""
