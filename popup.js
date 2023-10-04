@@ -79,6 +79,23 @@ const restoreOptions = () => {
                 document.querySelector('#saveButton').addEventListener('click', function() {
                     if (USER_PROVIDER === 'infomaniak') {
                             main_create(USER_APIKEY, USER_MAIL, newAlias);
+                            async function getAlias() {
+                                const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
+                                return ALIASES;
+                            }
+                            const aliases = getAlias().then(aliases => {
+                                const aliasesList = document.createElement('ul');
+                                aliases.forEach(alias => {
+                                    const aliasItem = document.createElement('li');
+                                    aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
+                                    const switchItem = document.createElement('input');
+                                    switchItem.type = 'checkbox';
+                                    switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
+                                    aliasItem.appendChild(switchItem);
+                                    aliasesList.appendChild(aliasItem);
+                                });
+                                document.getElementById('existingAliases').appendChild(aliasesList);
+                            });
                     }
                   });
                 
