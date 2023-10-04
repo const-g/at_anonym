@@ -62,7 +62,17 @@ const restoreOptions = () => {
                         return ALIASES;
                     }
                     const aliases = getAlias().then(aliases => {
-                        document.getElementById('existingAliases').textContent = aliases;
+                        const aliasesList = document.createElement('ul');
+                        aliases.forEach(alias => {
+                            const aliasItem = document.createElement('li');
+                            aliasItem.textContent = alias;
+                            const switchItem = document.createElement('input');
+                            switchItem.type = 'checkbox';
+                            switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
+                            aliasItem.appendChild(switchItem);
+                            aliasesList.appendChild(aliasItem);
+                        });
+                        document.getElementById('existingAliases').appendChild(aliasesList);
                     });
                 }
 
