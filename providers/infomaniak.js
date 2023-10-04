@@ -143,6 +143,7 @@ async function main_create(API_KEY, EMAIL, ALIAS) {
         await addAlias(API_KEY, USER, MAILBOX_ID, ALIAS);
         const [MAILBOXS_ID, ALIASES] = await listAliases(API_KEY, USER, DOMAIN);
         console.log(ALIASES)
+        return true;
     }
 }
 
@@ -155,6 +156,7 @@ async function main_rename(API_KEY, EMAIL, ALIAS) {
         await renameAlias(API_KEY, USER, MAILBOX_ID, ALIAS);
         const [MAILBOXS_ID, ALIASES] = await listAliases(API_KEY, USER, DOMAIN);
         console.log(ALIASES)
+        return true;
     }
 }
 

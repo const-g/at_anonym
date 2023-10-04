@@ -71,6 +71,19 @@ const restoreOptions = () => {
                             switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
                             aliasItem.appendChild(switchItem);
                             aliasesList.appendChild(aliasItem);
+
+                            // Create delete button
+                            const deleteButton = document.createElement('button');
+                            deleteButton.textContent = 'Supprimer';
+                            aliasItem.appendChild(deleteButton);
+
+                            // Add event listener to delete button
+                            deleteButton.addEventListener('click', function() {
+                                // Call deleteAlias function
+                                deleteAlias(alias);
+                                // Remove aliasItem from the list
+                                aliasesList.removeChild(aliasItem);
+                            });
                         });
                         document.getElementById('existingAliases').appendChild(aliasesList);
                     });
@@ -78,24 +91,38 @@ const restoreOptions = () => {
 
                 document.querySelector('#saveButton').addEventListener('click', function() {
                     if (USER_PROVIDER === 'infomaniak') {
-                            main_create(USER_APIKEY, USER_MAIL, newAlias);
-                            async function getAlias() {
-                                const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
-                                return ALIASES;
-                            }
-                            const aliases = getAlias().then(aliases => {
-                                const aliasesList = document.createElement('ul');
-                                aliases.forEach(alias => {
-                                    const aliasItem = document.createElement('li');
-                                    aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
-                                    const switchItem = document.createElement('input');
-                                    switchItem.type = 'checkbox';
-                                    switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
-                                    aliasItem.appendChild(switchItem);
-                                    aliasesList.appendChild(aliasItem);
+                            if (main_create(USER_APIKEY, USER_MAIL, newAlias)) {
+                                async function getAlias() {
+                                    const [MAILBOXS_ID, ALIASES] = await listAliases(USER_APIKEY, USER_USER, USER_DOMAIN);
+                                    return ALIASES;
+                                }
+                                const aliases = getAlias().then(aliases => {
+                                    const aliasesList = document.createElement('ul');
+                                    aliases.forEach(alias => {
+                                        const aliasItem = document.createElement('li');
+                                        aliasItem.textContent = alias.startsWith('DISABLE-') ? alias.slice(8) : alias;
+                                        const switchItem = document.createElement('input');
+                                        switchItem.type = 'checkbox';
+                                        switchItem.checked = alias.startsWith('DISABLE-') ? false : true;
+                                        aliasItem.appendChild(switchItem);
+                                        aliasesList.appendChild(aliasItem);
+            
+                                        // Create delete button
+                                        const deleteButton = document.createElement('button');
+                                        deleteButton.textContent = 'Supprimer';
+                                        aliasItem.appendChild(deleteButton);
+            
+                                        // Add event listener to delete button
+                                        deleteButton.addEventListener('click', function() {
+                                            // Call deleteAlias function
+                                            deleteAlias(alias);
+                                            // Remove aliasItem from the list
+                                            aliasesList.removeChild(aliasItem);
+                                        });
+                                    });
+                                    document.getElementById('existingAliases').appendChild(aliasesList);
                                 });
-                                document.getElementById('existingAliases').appendChild(aliasesList);
-                            });
+                            }
                     }
                   });
                 
