@@ -1,10 +1,10 @@
 const saveOptions = () => {
-  const presta = document.getElementById("presta").value;
-  const domain = document.getElementById("domain").value;
+  const provider = document.getElementById("provider").value;
+  const mail = document.getElementById("mail").value;
   const apikey = document.getElementById("apikey").value;
 
   chrome.storage.sync.set(
-    { presta: presta, domain: domain, apikey: apikey },
+    { provider: provider, mail: mail, apikey: apikey },
     () => {
       // Update status to let user know options were saved.
       const status = document.getElementById("status");
@@ -18,10 +18,10 @@ const saveOptions = () => {
 
 const restoreOptions = () => {
   chrome.storage.sync.get(
-    { presta: 'not set', domain: 'not set', apikey: 'not set' },
+    { provider: 'not set', mail: 'not set', apikey: 'not set' },
     (items) => {
-      document.getElementById("presta").value = items.presta;
-      document.getElementById("domain").value = items.domain;
+      document.getElementById("provider").value = items.provider;
+      document.getElementById("mail").value = items.mail;
       document.getElementById("apikey").value = items.apikey;
     }
   );

@@ -7,11 +7,16 @@
   </head>
 
   <body>
-    <h1>Nouvelle adresse : </h1>
-    <div id="address"></div>
-    <span id="status"><button id="saveButton">💾 Sauvegarder cette adresse</button></span>
-    <div id="existingAliases">Chargement des alias existant...</div>
+    <h1>Create an alias for this website ? </h1>
+    <div class="addr" id="address"></div>
+    <span id="status"><button class="saveButton" id="saveButton"><span class="lable">💾 Save this alias</span></button></span>
+    <div id="existingAliases"></div>
 
+    <h1>Settings </h1>
+    <div class="addr">Provider : </div><div class="addr" id="provider"></div>
+    <div class="addr">Email : </div><div class="addr" id="mail"></div>
+    <span id="status"><button class="saveButton" id="go-to-options"><span class="lable">⚙️ Configuration</span></button></span>
+    <script src="./providers/infomaniak.js"></script>
     <script src="./popup.js"></script>
   </body>
 
